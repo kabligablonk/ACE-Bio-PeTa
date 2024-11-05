@@ -25,6 +25,10 @@ layout = [
     [sg.Button("Get Info"), sg.Button("Exit")]
 ]
 
+tracker_layout = [
+    # Add layout
+]
+
 # Create the window
 window = sg.Window("Group 3 ACEBIO", layout, size=(700, 400))
 
@@ -41,5 +45,8 @@ while True:
             sg.popup_error(f"Enter a valid index. \n Error: {e}")
 
 
+
+# Create second window for info tracker
+tracker_window = sg.Window("Tracked Information", tracker_layout, size=(100, 400))
 
 window.close()
