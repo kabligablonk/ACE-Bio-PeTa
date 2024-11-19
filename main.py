@@ -2,7 +2,7 @@ import Data
 import raspberry as rasp
 import PySimpleGUI as sg
 
-sg.theme('Dark Brown 1')
+sg.theme('Dark Gray 13')
 information = Data.information 
 
 # Returning info depending on button increment/decrement
@@ -20,19 +20,12 @@ def get_info(index):
 # GUI layout
 layout = [
     [sg.Text("Index (Part name)"), sg.Input(key='-INPUT-')],
-    [sg.Text("Results (Part info):", size=(0, 10), key='-PART-'), sg.Text("", key='-RESULT-', size=(50, 10),)],
+    [sg.Text("Results (Part info):", size=(0, 10), key='-PART-'), sg.Text("", key='-RESULT-', size=(50, 10), font=(32),)],
     [sg.Button("Get Info"), sg.Button("Exit")]
 ]
 
-# GUI for tracker window
-tracker_window = [
-    [sg.Text("Information Tracker")],
-    [sg.Text("Index: "), sg.Text(rasp.dictionary_index, key='-INDEX-')]
-]
-
 # Create the window
-window = sg.Window("Group 3 ACEBIO", layout, size=(700, 400))
-tracker_window = sg.Window("Information Tracker", tracker_window, size=(200,400))
+window = sg.Window("Group 3 ACEBIO", layout, size=(700, 400), resizable=True)
 
 while True:
     event, values = window.read(timeout=100)  # Add timeout to periodically check for updates
